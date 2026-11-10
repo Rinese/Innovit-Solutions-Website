@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Innovit · Engineering digital environments</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f4f6fb;--tx:#0b1220;--mu:#556077;--ac:#2f6bff;--ac2:#0a9d86;--ln:#e3e7ef;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+html{scroll-behavior:smooth;scroll-padding-top:80px;height:100%}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
+.m{font-family:'JetBrains Mono',ui-monospace,monospace}
+.w{max-width:1120px;margin:auto;padding:0 24px}
+header{position:sticky;top:0;z-index:9;background:#ffffffee;backdrop-filter:blur(10px);border-bottom:1px solid var(--ln);padding-top:env(safe-area-inset-top,0px)}
+nav{display:flex;align-items:center;gap:22px;height:64px}
+.logo{font-weight:800;letter-spacing:-.02em;font-size:20px;color:var(--tx);text-decoration:none;margin-right:auto;display:flex;align-items:center}.logo b{color:var(--ac)}
+.logo-img{height:50px;width:auto;display:block}
+nav a{color:var(--mu);text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:.08em;font-weight:500}.cta{background:var(--ac);color:#fff!important;padding:9px 18px;border-radius:8px}.lk{display:flex;align-items:center;gap:26px}.bg{display:none;background:none;border:1px solid var(--ln);border-radius:8px;padding:5px 11px;font-size:18px;color:var(--tx);cursor:pointer}nav a:hover{color:var(--tx)}
+.lang{display:flex;border:1px solid var(--ln);border-radius:8px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--mu);padding:6px 10px;font:500 12px 'JetBrains Mono',monospace;cursor:pointer}
+.lang button.on{background:var(--ac);color:#fff}
+.bn{background:var(--bg2);border-bottom:1px solid var(--ln);text-align:center;padding:8px 16px;font-size:12px;color:var(--ac2)}
+section{padding:72px 0;position:relative;display:flex;align-items:center}section>.w{width:100%}
+.hero{min-height:100vh}
+.dl{height:24px;width:2px;margin:0 auto;background:repeating-linear-gradient(var(--ac) 0 4px,transparent 4px 10px)}
+.ey{font:500 12px 'JetBrains Mono',monospace;color:var(--ac2);text-transform:uppercase;letter-spacing:.14em}
+h1{font-size:clamp(42px,8vw,104px);line-height:1.04;letter-spacing:-.035em;font-weight:800;margin:16px 0 20px;max-width:900px}
+h2{font-size:clamp(32px,5vw,64px);line-height:1.12;letter-spacing:-.025em;margin:10px 0 16px;font-weight:800}
+h3{margin:0 0 8px;font-size:20px}p{color:var(--mu);margin:0 0 14px}
+.sub{font-size:19px;max-width:660px}
+.btn{display:inline-block;padding:13px 24px;border-radius:10px;font-weight:600;text-decoration:none;font-size:15px;margin:8px 10px 0 0;border:1px solid var(--ac)}
+.p{background:var(--ac);color:#fff}.g{color:var(--tx)}.btn:hover{filter:brightness(1.15)}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:28px}
+.c{background:var(--bg2);border:1px solid var(--ln);border-radius:14px;padding:26px;transition:.2s;position:relative;overflow:hidden}
+.c:hover{border-color:var(--ac);transform:translateY(-3px)}
+.n{position:absolute;right:-6px;bottom:-34px;font:800 190px/1 Inter,sans-serif;letter-spacing:-.06em;color:var(--ac);opacity:.12;pointer-events:none;user-select:none}.c>*:not(.n){position:relative}.c{min-height:260px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tags span{border:1px solid var(--ln);border-radius:6px;padding:4px 10px;font:400 12px 'JetBrains Mono',monospace;color:var(--mu)}
+.mis{text-align:center;max-width:1000px;margin:auto}.mis h2{font-size:clamp(36px,6.5vw,84px);line-height:1.05;margin-bottom:28px}.mis .sub{font-size:clamp(18px,2vw,24px);max-width:820px;margin:auto}
+.st{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;margin-top:34px;border:1px solid var(--ln);border-radius:14px;overflow:hidden}
+.st div{padding:20px;border-right:1px solid var(--ln)}.st b{display:block;color:var(--ac2);font:500 12px 'JetBrains Mono',monospace;margin-bottom:6px}
+.badge{font:500 11px 'JetBrains Mono',monospace;color:var(--ac2);border:1px solid var(--ac2);border-radius:99px;padding:3px 10px;display:inline-block;margin-bottom:12px}
+details{border-bottom:1px solid var(--ln);padding:16px 0}summary{cursor:pointer;font-weight:600;list-style:none}summary::after{content:'+';float:right;color:var(--ac)}details[open] summary::after{content:'–'}
+form{display:grid;gap:12px;margin-top:10px}
+input,textarea,select{background:var(--bg2);border:1px solid var(--ln);border-radius:10px;color:var(--tx);padding:13px 14px;font:inherit;width:100%}
+input:focus,textarea:focus,select:focus{outline:0;border-color:var(--ac)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:40px}
+.tp{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin-top:24px}
+.tp a{display:flex;flex-direction:column;gap:14px;border:1px solid var(--ln);border-radius:12px;padding:18px;text-decoration:none;color:var(--tx);background:var(--bg2);transition:.2s}
+.tp a:hover{border-color:var(--ac2);box-shadow:0 0 0 1px var(--ac2) inset}
+.tp small{font:400 12px 'JetBrains Mono',monospace;color:var(--mu)}.tp em{font:500 12px 'JetBrains Mono',monospace;color:var(--ac2);font-style:normal}
+footer{border-top:1px solid var(--ln);padding:30px 0;color:var(--mu);font-size:14px}
+footer .w{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}footer a{color:var(--mu)}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#071a5c,#1647d4 55%,#0a2a8a);--tx:#fff;--mu:#d5e0ff;--ln:#ffffff40;--bg2:#ffffff1f;--ac:#fff;--ac2:#8fe9ff;color:var(--tx)}.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}.hero .w{position:relative;z-index:1}.hero .btn.p{background:#fff;color:#0a2a8a;border-color:#fff}.c details{border:0;padding:0;margin-top:10px}.c summary{color:var(--ac);font:500 14px 'JetBrains Mono',monospace}.c details p{margin-top:12px;font-size:15px}
+.more{display:inline-block;margin-top:10px;color:var(--ac);font-size:14px;text-decoration:none;font-weight:500}.more:hover{text-decoration:underline}
+.hero{--mx:50%;--my:40%;background:linear-gradient(135deg,#050d38,#0b2a90)}.hero::before,.hero::after{display:none}
+.hero .ey::after{content:'_';margin-left:4px;animation:bl 1.1s steps(2) infinite}@keyframes bl{50%{opacity:0}}@media(prefers-reduced-motion:reduce){.hero .ey::after{animation:none}}
+.cube-wrap{--z:120px;position:absolute;right:max(24px,9vw);top:50%;width:calc(var(--z)*2);height:calc(var(--z)*2);margin-top:calc(var(--z)*-1);perspective:1000px;pointer-events:none;z-index:0}
+.cube{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--rx,-22deg)) rotateY(var(--ry,30deg))}.cube.a{--zz:var(--z)}.cube.b{--zz:calc(var(--z)*.46);inset:27%;transform:rotateX(calc(var(--rx,-22deg)*-1)) rotateY(calc(var(--ry,30deg)*-1.4))}
+.cube i{position:absolute;inset:0;border:1px solid #8fe9ff70;background:#8fe9ff0a}.cube.b i{border-color:#fff;background:#ffffff14}
+.cube i:nth-child(1){transform:translateZ(var(--zz))}.cube i:nth-child(2){transform:rotateY(180deg) translateZ(var(--zz))}.cube i:nth-child(3){transform:rotateY(90deg) translateZ(var(--zz))}.cube i:nth-child(4){transform:rotateY(-90deg) translateZ(var(--zz))}.cube i:nth-child(5){transform:rotateX(90deg) translateZ(var(--zz))}.cube i:nth-child(6){transform:rotateX(-90deg) translateZ(var(--zz))}
+.hero h1{max-width:min(900px,64%)}.hero .sub{max-width:min(660px,58%)}
+@media(max-width:900px){.cube-wrap{--z:60px;top:auto;bottom:26px;margin-top:0;right:20px;opacity:.55}.hero h1,.hero .sub{max-width:100%}}
+.v{display:none}.v.on{display:block}.dk{background:#0a1530;--tx:#fff;--mu:#aab6d0;--ln:#25335a;--bg2:#12204a;color:var(--tx)}.ac{background:linear-gradient(135deg,#2f6bff,#6a3dff);--tx:#fff;--mu:#e3e8ff;--ln:#ffffff40;--bg2:#ffffff1f;--ac:#fff;--ac2:#fff;color:var(--tx)}
+.tpl-hero{min-height:auto;padding:72px 0 56px;background:linear-gradient(135deg,#050d38,#0b2a90);--tx:#fff;--mu:#d5e0ff;--ac:#fff;--ac2:#8fe9ff;color:var(--tx);display:block}
+.tpl-hero .w{width:100%}
+.tpl-hero h1{max-width:900px}
+.tpl-hero .sub{max-width:660px}
+.tpl-hero .ey{color:var(--ac2)}
+.tpl-body{padding:56px 0}
+#top{position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;background:var(--ac);color:#fff;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 6px 18px #2f6bff55;opacity:0;transform:translateY(12px);pointer-events:none;transition:.25s;z-index:20}
+#top.on{opacity:1;transform:none;pointer-events:auto}
+#top:hover{filter:brightness(1.12)}
+@media(max-width:900px){.bg{display:block}nav{gap:12px}.lk{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:flex-start;gap:18px;padding:20px 24px;border-bottom:1px solid var(--ln)}nav.open .lk{display:flex}.nm{margin-right:0}}@media(max-width:720px){section{padding:44px 0}.dl{height:18px}.btn{width:100%;text-align:center;margin-right:0}.n{font-size:130px}.tpl-hero{padding:52px 0 36px}.tpl-body{padding:40px 0}#top{right:16px;bottom:16px;width:42px;height:42px}}
+</style></head><body>
+<header><div class="w"><nav>
+<a class="logo" href="#home" data-route="home" aria-label="Innovit"><img src="White-Photoroom.png" alt="Innovit" class="logo-img"></a>
+<div class="lk">
+  <a class="h" href="#home" data-route="home" data-i="n1">Home</a>
+  <a class="h" href="#expertise" data-i="n2">Expertise</a>
+  <a class="h" href="#products" data-i="n3">Products</a>
+  <a class="h" href="#free-website" data-route="free" data-i="n4">Free website</a>
+  <a class="h cta" href="#contact" data-i="n5">Contact</a>
+</div>
+<div class="lang"><button data-l="en">EN</button><button data-l="de">DE</button><button data-l="fr">FR</button></div><button class="bg" id="bg" aria-label="Menu">☰</button>
+</nav></div></header>
+<div class="bn m" data-i="bn"></div>
+
+<main id="view-home" class="v on">
+<section class="hero"><canvas id="hc"></canvas><div class="cube-wrap" aria-hidden="true"><div class="cube a"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="cube b"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="w"><div class="ey" data-i="ey"></div><h1 data-i="h1"></h1><p class="sub" data-i="sub"></p>
+<a class="btn p" href="#contact" data-i="b1"></a><a class="btn g" href="#free-website" data-route="free" data-i="b2"></a>
+<div class="g3"><div class="c"><div class="n">01</div><h3 data-i="a1"></h3><p data-i="a1d"></p></div><div class="c"><div class="n">02</div><h3 data-i="a2"></h3><p data-i="a2d"></p></div><div class="c"><div class="n">03</div><h3 data-i="a3"></h3><p data-i="a3d"></p></div></div></div></section>
+<div class="dl"></div>
+<section><div class="w"><div class="ey" data-i="wy"></div><h2 data-i="wyh"></h2><p class="sub" data-i="wyp"></p><div class="g3" id="wy"></div><p class="sub" style="margin-top:32px"><b style="color:var(--tx)" data-i="tlh"></b> <a href="#contact" class="btn p" data-i="b1"></a></p></div></section><div class="dl"></div><section class="ac"><div class="w mis"><h2 data-i="mh"></h2><p class="sub" data-i="mp"></p></div></section>
+<div class="dl"></div>
+<section id="expertise"><div class="w"><div class="ey" data-i="ex"></div><h2 data-i="exh"></h2>
+<div class="g3">
+<div class="c"><h3 data-i="s1"></h3><p data-i="s1d"></p><p class="m" style="font-size:12px" data-i="s1b"></p><div class="tags m"><span>React</span><span>Angular</span><span>.NET</span><span>Node.js</span></div></div>
+<div class="c"><h3 data-i="s2"></h3><p data-i="s2d"></p><p class="m" style="font-size:12px" data-i="s2b"></p><div class="tags m"><span>Technical SEO</span><span>Local SEO</span><span>Analytics</span></div></div>
+<div class="c"><h3 data-i="s3"></h3><p data-i="s3d"></p><p class="m" style="font-size:12px" data-i="s3b"></p><div class="tags m"><span>AI</span><span>Automation</span><span>Flutter</span><span>APIs</span></div></div></div>
+<div class="tags m" style="margin-top:24px"><span>.NET</span><span>Node.js</span><span>React</span><span>Angular</span><span>C#</span><span>TypeScript</span><span>PostgreSQL</span><span>SQLite</span><span>Docker</span><span>Flutter</span></div></div></section>
+<section class="dk"><div class="w"><div class="ey" data-i="pr"></div><h2 data-i="prh"></h2><p class="sub" data-i="prp"></p>
+<div class="st"><div><b>01 · <span class="wk"></span> 1–2</b><span data-i="p1"></span></div><div><b>02 · <span class="wk"></span> 3–4</b><span data-i="p2"></span></div><div><b>03 · <span class="wk"></span> 5–8</b><span data-i="p3"></span></div><div><b>04 · <span class="wk"></span> 9–10</b><span data-i="p4"></span></div><div><b>05 · <span class="wk"></span> 11–12</b><span data-i="p5"></span></div></div></div></section>
+<div class="dl"></div>
+<section id="products"><div class="w"><div class="ey" data-i="n3"></div><h2 data-i="ph"></h2><p class="sub" data-i="pp"></p>
+<div class="g3" style="grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))">
+<div class="c"><span class="badge m" data-i="soon"></span><h3 data-i="hr"></h3><p data-i="hrd"></p><a class="more" href="hr-dashboard.html" target="_blank" rel="noopener" data-i="more"></a></div>
+<div class="c"><span class="badge m" data-i="soon"></span><h3 data-i="lab"></h3><p data-i="labd"></p><a class="more" href="laboratory-platform.html" target="_blank" rel="noopener" data-i="more"></a></div></div></div></section>
+<section><div class="w" style="max-width:820px"><div class="ey">FAQ</div><h2 data-i="fh"></h2>
+<details><summary data-i="q1"></summary><p data-i="a1x"></p></details>
+<details><summary data-i="q2"></summary><p data-i="a2x"></p></details>
+<details><summary data-i="q3"></summary><p data-i="a3x"></p></details>
+<details><summary data-i="q4"></summary><p data-i="a4x"></p></details></div></section>
+</main>
+
+<main id="view-free" class="v">
+<section class="hero tpl-hero">
+  <div class="w">
+    <div class="ey" data-i="tph"></div>
+    <h1 data-i="tpt"></h1>
+    <p class="sub" data-i="tpp"></p>
+  </div>
+</section>
+<section class="tpl-body">
+  <div class="w">
+    <div class="tp" id="tp"></div>
+    <p style="margin-top:32px"><b style="color:var(--tx)" data-i="flat"></b><br><span data-i="flatd"></span></p>
+  </div>
+</section>
+</main>
+
+<section id="contact" class="dk"><div class="w two"><div><div class="ey" data-i="ct"></div><h2 data-i="cth"></h2><p data-i="ctp"></p>
+<p class="m" style="color:var(--tx)">+383 49 149 867<br><a style="color:var(--ac2)" href="mailto:contact@innovit-solutions.info">contact@innovit-solutions.info</a></p></div>
+<form id="f" action="https://formsubmit.co/contact@innovit-solutions.info" method="POST">
+  <input type="text" name="_honey" style="display:none">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="text" name="First Name" data-ph="fn" required>
+  <input type="email" name="Email" data-ph="fe" required>
+  <select name="Subject" required>
+    <option data-i="o1"></option>
+    <option data-i="o2"></option>
+    <option data-i="o3"></option>
+    <option data-i="o4"></option>
+    <option data-i="o5"></option>
+    <option data-i="o6"></option>
+  </select>
+  <textarea name="Message" rows="5" data-ph="fm" required></textarea>
+  <button class="btn p" style="cursor:pointer;margin:0" data-i="send"></button>
+</form>
+</div></section>
+<footer><div class="w"><span>© 2026 Innovit Solutions</span><span><a href="https://www.instagram.com/innovitsolution_/">Instagram</a> · <a href="https://wa.me/38349149867">WhatsApp</a></span></div></footer>
+
+<button id="top" aria-label="Back to top">↑</button>
+
+<script>
+var T={
+en:{n1:'Home',n2:'Expertise',n3:'Products',n4:'Free website',n5:'Contact',bn:'COMPLIMENTARY WEBSITE PREVIEW · No upfront investment · Payment upon approval · Preview in 48 hours',ey:'Architects of digital environments',h1:'We engineer intelligent digital environments.',sub:'From startups to enterprises, we build websites, AI-assisted applications and search strategies that deliver measurable results.',b1:'Request a preview →',b2:'View service',a1:'Bespoke engineering',a1d:'Architecture and design built around your processes, not adapted from a template.',a2:'Validated early',a2d:'A working preview within 48 hours lets you evaluate the solution before any commitment.',a3:'Risk-aligned delivery',a3d:'Payment follows only once the delivered result meets the agreed requirements.',mh:'Purpose-built software, aligned to your workflows.',mp:'Off-the-shelf platforms impose compromises. We engineer from the ground up in clean, hand-written code and apply AI, machine learning and automation where they measurably improve efficiency, so the software adapts to your processes.',ex:'Core capabilities',exh:'Technical services',s1:'Web development',s1d:'Full-stack engineering for performance and scalability: component-based front ends, secure APIs, headless CMS architectures and continuous performance tuning.',s2:'SEO & visibility',s2d:'Technical audits, structured data, keyword and competitor intelligence, local search, and AI-assisted analytics for sustainable organic growth.',s3:'Apps & AI automation',s3d:'Custom web and mobile applications, dashboards and client portals, with workflow automation and AI-driven features such as classification, forecasting and assistants.',pr:'Enterprise process',prh:'A structured, iterative workflow.',prp:'For larger projects: transparent, no black boxes.',wk:'Week',p1:'Discovery',p2:'Design',p3:'Development',p4:'QA & staging',p5:'Deployment',ph:'Internal tools, externally available',pp:'Operational tools built in-house and now available to your organization.',soon:'COMING 2026',hr:'HR dashboard',hrd:'Employee profiles, attendance, holiday calendar, payroll access and task management.',lab:'Laboratory platform',labd:'Samples, reagents and protocols, patient records, reporting, invoicing and billing.',fh:'Frequently asked questions',q1:'How long does a website project take?',a1x:'A preview in 48 hours. A standard corporate site takes 6–8 weeks from discovery to launch, e-commerce 10–12 weeks.',q2:'Do you optimize existing websites for SEO?',a2x:'Yes: technical SEO, content strategy, backlink analysis and monthly performance reports.',q3:'How does custom software development work?',a3x:'Five phases: discovery, design, development, QA and deployment with ongoing support.',q4:'How do you measure SEO success?',a4x:'Keyword rankings, organic traffic, conversion rates, backlink quality and search visibility, with monthly ROI reports.',wy:'Why Innovit',wyh:'The digital backbone for modern businesses.',wyp:'Precision engineering from architecture to deployment.',f1:'Engineered interfaces',f1d:'Component-based front ends built to specification, optimized for rendering performance and consistency across devices.',f2:'Predictable delivery',f2d:'Defined phases, working previews and staged approvals keep scope, quality and timeline transparent from start to launch.',f3:'Automation-ready',f3d:'Workflows are modelled so repetitive operations, data handling and reporting can be automated with minimal friction.',f4:'Responsive by default',f4d:'Layouts and interactions are engineered mobile-first and validated across viewport ranges and input methods.',f5:'Custom applications',f5d:'Purpose-built web applications that encode your business logic, integrate with existing systems and scale with demand.',f6:'Search-aligned architecture',f6d:'Structured data, crawlability and performance are treated as engineering requirements rather than post-launch fixes.',f7:'AI-assisted features',f7d:'Machine learning is applied where it produces measurable value — classification, forecasting, document processing and assistants.',f8:'End-to-end launch',f8d:'From architecture and implementation to deployment and monitoring, delivery is handled as one continuous process.',tlh:'Receive a working preview within 48 hours.',s1b:'React.js, Angular, .NET, Node.js · Headless CMS & API design · Performance optimization',s2b:'Search Console integration · Keyword & competitor tracking · Local SEO & Google Maps',s3b:'Custom web applications · Dashboards & admin panels · Client portals & internal systems · Workflow automation',more:'View documentation →',tph:'Template registry',tpt:'Choose your style, or get a custom one.',tpp:'Industry-ready foundations, each fully customizable. Every template is a working demo you can explore live.',demo:'open live demo ↗',flat:'Flat-rate, no surprises.',flatd:'One price covers design, development, hosting and domain. No hidden fees, no long-term contracts.',b3:'Request a free preview →',ct:'Create with us',cth:'Let’s build something.',ctp:'Technical questions · product inquiries · partnerships',fn:'First name',fe:'Email',fm:'Message',send:'Send message',o1:'General inquiry',o2:'Free website demo',o3:'Product demo',o4:'Technical support',o5:'Partnership',o6:'Other'},
+de:{n1:'Start',n2:'Expertise',n3:'Produkte',n4:'Gratis-Website',n5:'Kontakt',bn:'KOSTENLOSE WEBSITE-VORSCHAU · Keine Vorabinvestition · Zahlung nach Freigabe · Vorschau in 48 Stunden',ey:'Architekten digitaler Umgebungen',h1:'Intelligente, skalierbare digitale Systeme.',sub:'Wir konzipieren und realisieren Websites, Webplattformen und KI-gestützte Anwendungen, die Abläufe vereinfachen und messbaren Geschäftswert schaffen.',b1:'Vorschau anfragen →',b2:'Leistung ansehen',a1:'Individuelle Entwicklung',a1d:'Architektur und Design orientieren sich an Ihren Prozessen, nicht an einer Vorlage.',a2:'Frühzeitig validiert',a2d:'Eine funktionsfähige Vorschau binnen 48 Stunden ermöglicht die Bewertung vor jeder Verpflichtung.',a3:'Risikoorientierte Umsetzung',a3d:'Die Zahlung erfolgt erst, wenn das Ergebnis den vereinbarten Anforderungen entspricht.',mh:'Maßgeschneiderte Software für Ihre Arbeitsabläufe.',mp:'Standardplattformen erzwingen Kompromisse. Wir entwickeln von Grund auf in sauberem, handgeschriebenem Code und setzen KI, maschinelles Lernen und Automatisierung dort ein, wo sie die Effizienz messbar steigern, sodass sich die Software Ihren Prozessen anpasst.',ex:'Kernkompetenzen',exh:'Technische Leistungen',s1:'Webentwicklung',s1d:'Full-Stack-Engineering für Performance und Skalierbarkeit: komponentenbasierte Frontends, sichere APIs, Headless-CMS-Architekturen und kontinuierliches Performance-Tuning.',s2:'SEO & Sichtbarkeit',s2d:'Technische Audits, strukturierte Daten, Keyword- und Wettbewerbsanalyse, lokale Suche und KI-gestützte Analysen für nachhaltiges organisches Wachstum.',s3:'Apps & KI-Automatisierung',s3d:'Individuelle Web- und Mobile-Anwendungen, Dashboards und Kundenportale mit Workflow-Automatisierung und KI-Funktionen wie Klassifikation, Prognose und Assistenten.',pr:'Enterprise-Prozess',prh:'Ein strukturierter, iterativer Workflow.',prp:'Für größere Projekte: transparent, keine Black Box.',wk:'Woche',p1:'Analyse',p2:'Design',p3:'Entwicklung',p4:'QA & Staging',p5:'Deployment',ph:'Interne Tools, jetzt extern verfügbar',pp:'Intern entwickelte Betriebswerkzeuge, jetzt für Ihre Organisation verfügbar.',soon:'BALD 2026',hr:'HR-Dashboard',hrd:'Mitarbeiterprofile, Anwesenheit, Urlaubskalender, Gehaltszugriff und Aufgabenverwaltung.',lab:'Laborplattform',labd:'Proben, Reagenzien und Protokolle, Patientenakten, Berichte, Rechnungen und Abrechnung.',fh:'Häufige Fragen',q1:'Wie lange dauert ein Website-Projekt?',a1x:'Eine Vorschau in 48 Stunden. Eine Standard-Unternehmenswebsite dauert 6–8 Wochen von der Analyse bis zum Launch, E-Commerce 10–12 Wochen.',q2:'Optimieren Sie bestehende Websites für SEO?',a2x:'Ja: technisches SEO, Content-Strategie, Backlink-Analyse und monatliche Performance-Berichte.',q3:'Wie läuft die Individualentwicklung ab?',a3x:'Fünf Phasen: Analyse, Design, Entwicklung, QA und Deployment mit laufendem Support.',q4:'Wie messen Sie den SEO-Erfolg?',a4x:'Keyword-Rankings, organischer Traffic, Conversion-Raten, Backlink-Qualität und Sichtbarkeit, mit monatlichen ROI-Berichten.',wy:'Warum Innovit',wyh:'Das digitale Rückgrat moderner Unternehmen.',wyp:'Präzise Entwicklung von der Architektur bis zum Deployment.',f1:'Technisch konzipierte Interfaces',f1d:'Komponentenbasierte Frontends nach Spezifikation, optimiert für Rendering-Performance und Konsistenz über alle Geräte.',f2:'Planbare Umsetzung',f2d:'Definierte Phasen, funktionsfähige Vorschauen und gestufte Freigaben halten Umfang, Qualität und Zeitplan transparent.',f3:'Automatisierungsbereit',f3d:'Abläufe werden so modelliert, dass wiederkehrende Vorgänge, Datenverarbeitung und Reporting mit minimalem Aufwand automatisierbar sind.',f4:'Konsequent responsiv',f4d:'Layouts und Interaktionen werden mobile-first entwickelt und über alle Viewports und Eingabemethoden validiert.',f5:'Individuelle Anwendungen',f5d:'Zweckgebundene Webanwendungen, die Ihre Geschäftslogik abbilden, sich integrieren und mit der Nachfrage skalieren.',f6:'Suchmaschinenkonforme Architektur',f6d:'Strukturierte Daten, Crawlbarkeit und Performance gelten als technische Anforderungen, nicht als nachträgliche Korrekturen.',f7:'KI-gestützte Funktionen',f7d:'Maschinelles Lernen wird eingesetzt, wo es messbaren Nutzen bringt – Klassifikation, Prognose, Dokumentenverarbeitung und Assistenten.',f8:'Durchgängige Umsetzung',f8d:'Von Architektur und Implementierung bis Deployment und Monitoring als ein kontinuierlicher Prozess.',tlh:'Erhalten Sie binnen 48 Stunden eine funktionsfähige Vorschau.',s1b:'React.js, Angular, .NET, Node.js · Headless CMS & API-Design · Performance-Optimierung',s2b:'Search-Console-Integration · Keyword- & Wettbewerber-Tracking · Lokales SEO & Google Maps',s3b:'Individuelle Webanwendungen · Dashboards & Admin-Panels · Kundenportale & interne Systeme · Workflow-Automatisierung',more:'Dokumentation ansehen →',tph:'Vorlagenverzeichnis',tpt:'Wählen Sie Ihren Stil oder lassen Sie ihn individuell entwickeln.',tpp:'Branchenfertige Grundlagen, jeweils vollständig anpassbar. Jede Vorlage ist eine Live-Demo.',demo:'Live-Demo öffnen ↗',flat:'Pauschalpreis, keine Überraschungen.',flatd:'Ein Preis für Design, Entwicklung, Hosting und Domain. Keine versteckten Gebühren, keine langen Vertragslaufzeiten.',b3:'Kostenlose Vorschau anfragen →',ct:'Arbeiten Sie mit uns',cth:'Lassen Sie uns etwas bauen.',ctp:'Technische Fragen · Produktanfragen · Partnerschaften',fn:'Vorname',fe:'E-Mail',fm:'Nachricht',send:'Nachricht senden',o1:'Allgemeine Anfrage',o2:'Kostenlose Website-Demo',o3:'Produkt-Demo',o4:'Technischer Support',o5:'Partnerschaft',o6:'Sonstiges'},
+fr:{n1:'Accueil',n2:'Expertise',n3:'Produits',n4:'Site gratuit',n5:'Contact',bn:'APERÇU DE SITE OFFERT · Aucun investissement initial · Paiement après validation · Aperçu en 48 heures',ey:'Architectes d’environnements numériques',h1:'Des systèmes numériques intelligents et évolutifs.',sub:'Nous concevons et livrons des sites web, des plateformes et des applications dotées d’IA qui simplifient les opérations et créent une valeur mesurable.',b1:'Demander un aperçu →',b2:'Voir le service',a1:'Ingénierie sur mesure',a1d:'Architecture et design construits autour de vos processus, et non adaptés d’un modèle.',a2:'Validé en amont',a2d:'Un aperçu fonctionnel sous 48 heures permet d’évaluer la solution avant tout engagement.',a3:'Livraison maîtrisée',a3d:'Le paiement n’intervient que lorsque le résultat répond aux exigences convenues.',mh:'Des logiciels conçus pour vos flux de travail.',mp:'Les plateformes standard imposent des compromis. Nous construisons de zéro, avec un code propre écrit à la main, et appliquons l’IA, le machine learning et l’automatisation là où ils améliorent mesurablement l’efficacité, pour que le logiciel s’adapte à vos processus.',ex:'Compétences clés',exh:'Services techniques',s1:'Développement web',s1d:'Ingénierie full-stack pour la performance et la scalabilité : interfaces par composants, API sécurisées, architectures CMS headless et optimisation continue.',s2:'SEO & visibilité',s2d:'Audits techniques, données structurées, veille mots-clés et concurrents, recherche locale et analyses assistées par IA pour une croissance organique durable.',s3:'Applications & automatisation IA',s3d:'Applications web et mobiles sur mesure, tableaux de bord et portails clients, avec automatisation des flux et fonctions pilotées par l’IA : classification, prévision, assistants.',pr:'Processus entreprise',prh:'Un flux de travail structuré et itératif.',prp:'Pour les projets d’envergure : transparent, sans boîte noire.',wk:'Semaine',p1:'Analyse',p2:'Design',p3:'Développement',p4:'QA & préproduction',p5:'Déploiement',ph:'Outils internes, désormais accessibles',pp:'Des outils opérationnels conçus en interne, désormais disponibles pour votre organisation.',soon:'BIENTÔT 2026',hr:'Tableau de bord RH',hrd:'Profils des employés, présence, calendrier des congés, accès à la paie et gestion des tâches.',lab:'Plateforme de laboratoire',labd:'Échantillons, réactifs et protocoles, dossiers patients, rapports, facturation et paiements.',fh:'Questions fréquentes',q1:'Combien de temps dure un projet de site web ?',a1x:'Un aperçu en 48 heures. Un site d’entreprise standard prend 6 à 8 semaines de l’analyse au lancement, un site e-commerce 10 à 12 semaines.',q2:'Optimisez-vous le SEO de sites existants ?',a2x:'Oui : SEO technique, stratégie de contenu, analyse des backlinks et rapports de performance mensuels.',q3:'Comment se déroule le développement sur mesure ?',a3x:'Cinq phases : analyse, design, développement, QA et déploiement avec un support continu.',q4:'Comment mesurez-vous le succès du SEO ?',a4x:'Classement des mots-clés, trafic organique, taux de conversion, qualité des backlinks et visibilité, avec des rapports de ROI mensuels.',wy:'Pourquoi Innovit',wyh:'L’ossature numérique des entreprises modernes.',wyp:'Une ingénierie précise, de l’architecture au déploiement.',f1:'Interfaces conçues sur mesure',f1d:'Des interfaces par composants construites selon vos spécifications, optimisées pour le rendu et la cohérence sur tous les appareils.',f2:'Livraison prévisible',f2d:'Des phases définies, des aperçus fonctionnels et des validations par étapes rendent le périmètre, la qualité et le calendrier transparents.',f3:'Prêt pour l’automatisation',f3d:'Les flux sont modélisés pour automatiser les opérations répétitives, la gestion des données et le reporting avec un minimum de friction.',f4:'Responsive par défaut',f4d:'Les mises en page et interactions sont conçues mobile-first et validées sur l’ensemble des formats et méthodes de saisie.',f5:'Applications sur mesure',f5d:'Des applications web dédiées qui traduisent votre logique métier, s’intègrent à vos systèmes et évoluent avec la demande.',f6:'Architecture alignée sur la recherche',f6d:'Données structurées, crawlabilité et performance sont traitées comme des exigences techniques, non comme des correctifs après lancement.',f7:'Fonctions assistées par IA',f7d:'Le machine learning est appliqué là où il apporte une valeur mesurable : classification, prévision, traitement documentaire et assistants.',f8:'Lancement de bout en bout',f8d:'De l’architecture et l’implémentation au déploiement et au monitoring, la livraison est traitée comme un processus continu.',tlh:'Recevez un aperçu fonctionnel sous 48 heures.',s1b:'React.js, Angular, .NET, Node.js · CMS headless & conception d’API · Optimisation des performances',s2b:'Intégration Search Console · Suivi des mots-clés et concurrents · SEO local & Google Maps',s3b:'Applications web sur mesure · Tableaux de bord & panneaux d’administration · Portails clients & systèmes internes · Automatisation des flux',more:'Voir la documentation →',tph:'Catalogue de modèles',tpt:'Choisissez votre style, ou optez pour du sur mesure.',tpp:'Des bases prêtes pour chaque secteur, entièrement personnalisables. Chaque modèle est une démo en ligne.',demo:'ouvrir la démo ↗',flat:'Forfait fixe, sans surprise.',flatd:'Un seul prix couvre le design, le développement, l’hébergement et le domaine. Aucun frais caché, aucun engagement long.',b3:'Demander un aperçu gratuit →',ct:'Créez avec nous',cth:'Construisons quelque chose.',ctp:'Questions techniques · demandes produit · partenariats',fn:'Prénom',fe:'E-mail',fm:'Message',send:'Envoyer le message',o1:'Demande générale',o2:'Démo de site gratuite',o3:'Démo produit',o4:'Support technique',o5:'Partenariat',o6:'Autre'}
+};
+
+var TP='architecture:Architecture|Architektur|Architecture,art:Art|Kunst|Art,beauty:Beauty|Beauty|Beauté,yoga:Yoga|Yoga|Yoga,coaching:Coaching|Coaching|Coaching,construction:Construction|Bau|Construction,lawyers:Corporate|Unternehmen|Entreprise,education:Education|Bildung|Éducation,events:Events|Events|Événements,fashion-retail:Fashion|Mode|Mode,healthcare:Healthcare|Gesundheit|Santé,marketing:Marketing|Marketing|Marketing,ngo:NGO|NGO|ONG,personalservice:Personal service|Dienstleistung|Services à la personne,pets:Pets|Haustiere|Animaux,realestate:Real estate|Immobilien|Immobilier,restaurant:Restaurant|Restaurant|Restaurant,sport:Sport|Sport|Sport,travel:Travel|Reisen|Voyage'.split(',').map(function(x){var a=x.split(':');return{u:'https://innovit-'+a[0]+'.vercel.app/',n:a[1].split('|')}});
+
+var L='en';try{L=localStorage.getItem('lg')||(/^(de|fr)/.test(navigator.language)?navigator.language.slice(0,2):'en')}catch(e){}
+function $(s){return document.querySelectorAll(s)}
+
+function setL(l){L=l;try{localStorage.setItem('lg',l)}catch(e){}document.documentElement.lang=l;var t=T[l];
+$('[data-i]').forEach(function(e){e.textContent=t[e.dataset.i]||''});
+$('[data-ph]').forEach(function(e){e.placeholder=t[e.dataset.ph]||''});
+$('.wk').forEach(function(e){e.textContent=t.wk});
+$('.lang button').forEach(function(b){b.classList.toggle('on',b.dataset.l==l)});
+var wyE=document.getElementById('wy');if(wyE)wyE.innerHTML=[1,2,3,4,5,7].map(function(k){return'<div class="c" style="min-height:210px"><div class="n">0'+k+'</div><h3>'+t['f'+k]+'</h3><p>'+t['f'+k+'d']+'</p></div>'}).join('');
+var i=l=='de'?1:l=='fr'?2:0;var tpE=document.getElementById('tp');if(tpE)tpE.innerHTML=TP.map(function(p,k){return'<a href="'+p.u+'" target="_blank" rel="noopener"><small>'+(k<9?'0':'')+(k+1)+'</small><b>'+p.n[i]+'</b><em>'+t.demo+'</em></a>'}).join('')}
+
+function route(){
+  var h=(location.hash||'').replace('#','');
+  var free=(h==='free-website');
+  var vh=document.getElementById('view-home'),vf=document.getElementById('view-free');
+  if(vh)vh.classList.toggle('on',!free);
+  if(vf)vf.classList.toggle('on',free);
+  if(free){window.scrollTo(0,0);document.title='Innovit · Templates';}
+  else{document.title='Innovit · Engineering digital environments';}
+}
+window.addEventListener('hashchange',route);
+route();
+
+var logoEl=document.querySelector('.logo');
+if(logoEl){logoEl.addEventListener('click',function(e){
+  e.preventDefault();
+  var vh=document.getElementById('view-home'),vf=document.getElementById('view-free');
+  if(vh)vh.classList.add('on');
+  if(vf)vf.classList.remove('on');
+  document.title='Innovit · Engineering digital environments';
+  if(location.hash && location.hash!=='#home'){history.replaceState(null,'','#home');}
+  window.scrollTo({top:0,behavior:'smooth'});
+});}
+
+$('.lang button').forEach(function(b){b.onclick=function(){setL(b.dataset.l)}});
+document.getElementById('bg').onclick=function(){document.querySelector('nav').classList.toggle('open')};
+$('.lk a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('nav').classList.remove('open')})});
+
+var topBtn=document.getElementById('top');
+window.addEventListener('scroll',function(){topBtn.classList.toggle('on',window.scrollY>480)},{passive:true});
+topBtn.onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
+
+(function(){var w=document.querySelector('.cube-wrap');if(!w)return;var h=w.parentNode,tx=.5,ty=.5,x=.5,y=.5,a=30,rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+h.addEventListener('pointermove',function(e){var r=h.getBoundingClientRect();tx=(e.clientX-r.left)/r.width;ty=(e.clientY-r.top)/r.height});
+h.addEventListener('pointerleave',function(){tx=ty=.5});
+function lp(){x+=(tx-x)*.07;y+=(ty-y)*.07;if(!rm)a+=.18;w.style.setProperty('--ry',(a+(x-.5)*120)+'deg');w.style.setProperty('--rx',(-22+(y-.5)*-80)+'deg');if(!rm)requestAnimationFrame(lp)}lp()})();
+
+setL(L);
+</script></body></html>
